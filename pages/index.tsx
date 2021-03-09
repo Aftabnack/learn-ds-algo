@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { getAllDS } from "./api/docs";
+import { getAllDS } from "../lib/docs";
 
 export default function Home({ allDS }) {
   return (
@@ -15,7 +15,7 @@ export default function Home({ allDS }) {
 
         <section className="max-w-lg rounded shadow-lg p-4 bg-white">
           {allDS.map((post) => (
-            <Link href={`/ds/${post.slug}`}>
+            <Link key={post.slug} href={`/ds/${post.slug}`}>
               <span className="hover:underline hover:text-blue-300 cursor-pointer flex items-center text-xl">
                 <span className="rounded-full mr-2 bg-blue-400 h-2 w-2"></span>
                 {post.title}
